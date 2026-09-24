@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getFormBySlug, getSectionById } from "@/lib/catalog/store";
 import { AsanaEmbed } from "@/components/AsanaEmbed";
+import { asanaOpenUrl } from "@/lib/asana";
 import { ArrowUpRight } from "@/components/Icons";
 import styles from "@/components/hub/hub.module.css";
 
@@ -20,8 +21,7 @@ export default async function FormPage({ params }: PageProps<"/forms/[slug]">) {
   const section = await getSectionById(form.sectionId);
   if (!section || !section.visible) notFound();
 
-  const openInAsana = new URL(form.asanaEmbedUrl);
-  openInAsana.searchParams.delete("embed");
+  const openInAsana = asanaOpenUrl(form.asanaEmbedUrl);
 
   return (
     <div className="container">
@@ -46,14 +46,14 @@ export default async function FormPage({ params }: PageProps<"/forms/[slug]">) {
               </p>
             )}
           </div>
-          <a href={openInAsana.toString()} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
+          <a href={openInAsana} target="_blank" rel="noopener noreferrer" className="btn btn--secondary">
             Open in Asana <ArrowUpRight />
           </a>
         </div>
       </header>
 
       <div className={styles.formLayout}>
-        <AsanaEmbed src={form.asanaEmbedUrl} title={form.title} openUrl={openInAsana.toString()} />
+        <AsanaEmbed src={form.asanaEmbedUrl} title={form.title} openUrl={openInAsana} />
 
         <aside className={styles.formAside} aria-label="About this form">
           <div className={`card ${styles.asideCard}`}>
@@ -80,7 +80,7 @@ export default async function FormPage({ params }: PageProps<"/forms/[slug]">) {
           <div className={`card ${styles.asideCard}`}>
             <h2>What happens next</h2>
             <ol className={styles.asideSteps}>
-              <li>Fill in the form below. Attach references or files where the form allows.</li>
+              <li>Open the form in Asana and fill it in. Attach references or files where the form allows.</li>
               <li>Submitting creates a task in the team&rsquo;s Asana project.</li>
               <li>The owning team triages it and follows up in the Asana task.</li>
             </ol>

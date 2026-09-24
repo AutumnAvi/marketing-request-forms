@@ -755,13 +755,104 @@ textarea {
 }
 
 /* ------------------------------------------------------------- asana embed
-   Official Asana embed pattern: container + footer + iframe. The stylesheet
-   from form.asana.com is loaded on the form page; the rules below only size
-   the frame responsively and give it a sensible minimum height. */
+   Open-first, progressive. The default is the `.asana-gate` instruction card
+   whose primary action opens the verify-friendly form URL in a new tab. The
+   official Asana embed (container + footer + iframe) mounts only once staff
+   opt in; the rules below size that frame responsively. */
+
+.asana-gate {
+  display: grid;
+  gap: 24px;
+  padding: clamp(24px, 3.2vw, 40px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  background: var(--surface);
+  box-shadow: var(--shadow-m);
+  animation: page-in 320ms var(--ease) both;
+}
+
+.asana-gate__head {
+  display: grid;
+  gap: 10px;
+}
+
+.asana-gate__head .title-2 {
+  max-width: 24ch;
+}
+
+.asana-gate__lede {
+  max-width: 56ch;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.asana-gate__steps {
+  display: grid;
+  gap: 12px;
+  counter-reset: gate-step;
+  padding: 18px 20px;
+  border-radius: var(--radius-m);
+  background: var(--paper-2);
+}
+
+.asana-gate__steps li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 12px;
+  align-items: baseline;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.asana-gate__steps li::before {
+  counter-increment: gate-step;
+  content: counter(gate-step);
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--accent-ink);
+  transform: translateY(1px);
+}
+
+.asana-gate__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.asana-gate__note {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 62ch;
+  text-wrap: pretty;
+}
 
 .asana-embed {
   display: grid;
   gap: 12px;
+  animation: page-in 320ms var(--ease) both;
+}
+
+.asana-embed-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.asana-embed-bar .asana-embed-help {
+  flex: 1 1 320px;
 }
 
 .asana-embed-frame {
