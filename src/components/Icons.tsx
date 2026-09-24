@@ -60,6 +60,13 @@ export const Lock = (p: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+export const Reload = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base} {...p}>
+    <path d="M20 12a8 8 0 1 1-2.34-5.66" />
+    <path d="M20 4v5h-5" />
+  </svg>
+);
+
 export const Info = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base} {...p}>
     <circle cx="12" cy="12" r="9" />

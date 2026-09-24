@@ -52,7 +52,8 @@ Staff hub (public, `dynamic = "force-dynamic"` so edits show immediately):
 
 - `/` — hero, section index, section groups with form cards. Empty states invite adding the first section/form.
 - `/sections/[slug]` — one section's forms.
-- `/forms/[slug]` — form detail with `<AsanaEmbed>` + "Open in Asana" + sidebar. `AsanaEmbed` follows Asana's snippet exactly (`.asana-embed-container`, `.asana-embed-iframe`, `.asana-embed-footer` with the `.asana-embed-footer-logo` span whose image comes from Asana's stylesheet) and adds a fallback line linking to the form in Asana. Forms restricted in Asana to signed-in users render only for people with an Asana session; anonymous visitors get Asana's login redirect, which cannot be framed. That is an Asana form setting, not an app bug.
+- `/forms/[slug]` — form detail with `<AsanaEmbed>` + "Open in Asana" + sidebar. `AsanaEmbed` follows Asana's snippet exactly (`.asana-embed-container`, `.asana-embed-iframe`, `.asana-embed-footer` with the `.asana-embed-footer-logo` span whose image comes from Asana's stylesheet). Forms are restricted in Asana to Autumn Lake work emails; staff without an Asana session (no seat) must complete Asana's email-verify flow, which refuses to run inside a frame. That is an Asana form setting, not an app bug.
+- **Guided verify** (the shipped variant): `AsanaEmbed` renders an always-visible callout above the frame — Autumn Lake staff only, verify once per browser — with a primary CTA that opens the **non-embed** URL in a new tab and a secondary "I've verified — reload form" button that re-assigns the iframe `src` so it picks up the session cookie. The iframe is **always mounted**; never hide it behind a click in this variant. The open URL is derived by `asanaOpenUrl()` in `src/lib/asana-open-url.ts`, which only strips `embed` from the catalog src (never a different form). Copy says "Autumn Lake".
 
 Admin (`/admin/**`, gated by `src/lib/admin-gate.ts`):
 
