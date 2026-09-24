@@ -52,7 +52,7 @@ Staff hub (public, `dynamic = "force-dynamic"` so edits show immediately):
 
 - `/` — hero, section index, section groups with form cards. Empty states invite adding the first section/form.
 - `/sections/[slug]` — one section's forms.
-- `/forms/[slug]` — form detail with `<AsanaEmbed>` + "Open in Asana" + sidebar.
+- `/forms/[slug]` — form detail with `<AsanaEmbed>` + "Open in Asana" + sidebar. `AsanaEmbed` follows Asana's snippet exactly (`.asana-embed-container`, `.asana-embed-iframe`, `.asana-embed-footer` with the `.asana-embed-footer-logo` span whose image comes from Asana's stylesheet) and adds a fallback line linking to the form in Asana. Forms restricted in Asana to signed-in users render only for people with an Asana session; anonymous visitors get Asana's login redirect, which cannot be framed. That is an Asana form setting, not an app bug.
 
 Admin (`/admin/**`, gated by `src/lib/admin-gate.ts`):
 

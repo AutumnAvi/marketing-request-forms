@@ -314,6 +314,27 @@ textarea {
   display: flex;
   align-items: center;
   gap: 4px;
+  flex: none;
+}
+
+.site-nav a {
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .wordmark {
+    font-size: 18px;
+    gap: 10px;
+    white-space: nowrap;
+  }
+
+  .wordmark__tag {
+    display: none;
+  }
+
+  .site-nav a {
+    padding: 8px 10px;
+  }
 }
 
 .site-nav a {
@@ -738,6 +759,11 @@ textarea {
    from form.asana.com is loaded on the form page; the rules below only size
    the frame responsively and give it a sensible minimum height. */
 
+.asana-embed {
+  display: grid;
+  gap: 12px;
+}
+
 .asana-embed-frame {
   padding: clamp(8px, 1.5vw, 16px);
   border-radius: var(--radius-l);
@@ -748,32 +774,37 @@ textarea {
 
 .asana-embed-frame .asana-embed-container {
   width: 100%;
+  max-width: none;
 }
 
 .asana-embed-frame .asana-embed-iframe {
   width: 100%;
   min-height: 900px;
   height: clamp(900px, 85vh, 1400px);
-  border: 0;
-  border-radius: var(--radius-m);
+  border-color: var(--line);
+  border-radius: var(--radius-m) var(--radius-m) 0 0;
   background: #fff;
 }
 
 .asana-embed-frame .asana-embed-footer {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 6px 2px;
+  border-color: var(--line);
+  border-radius: 0 0 var(--radius-m) var(--radius-m);
+  background: var(--paper);
 }
 
-.asana-embed-frame .asana-embed-footer-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: var(--muted);
+.asana-embed-help {
+  padding: 10px 14px;
+  line-height: 1.5;
+  border-radius: var(--radius-m);
+  background: var(--paper-2);
+  font-size: 13.5px;
+  color: var(--ink-2);
 }
 
-.asana-embed-frame .asana-embed-footer-link img {
-  height: 14px;
-  width: auto;
+.asana-embed-help .link svg {
+  display: inline;
+  width: 13px;
+  height: 13px;
+  vertical-align: -2px;
+  margin-left: 1px;
 }

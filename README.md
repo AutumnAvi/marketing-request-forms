@@ -105,6 +105,7 @@ Reads for the hub would use the anon key with RLS `select` policies on `visible`
 - Forms are embedded with Asana's official pattern: `<link rel="stylesheet" href="https://form.asana.com/static/asana-form-embed-style.css">`, a `.asana-embed-container`, the `.asana-embed-iframe`, and the "Form powered by Asana" footer. See `src/components/AsanaEmbed.tsx`.
 - Get an embed URL in Asana: open the form → **Share** → **Embed** → copy the iframe `src`. Admin validates it is `https://form.asana.com/…` with `k` and `d` parameters and forces `embed=true`.
 - The iframe is 100 % wide with a 900 px minimum height (`clamp(900px, 85vh, 1400px)`), so long forms do not need a second scrollbar on most screens.
+- **Form access setting matters.** If a form is restricted in Asana ("verify with your email" / organisation only), it only renders inside the embed for people who are already signed in to Asana in that browser. Anonymous visitors are redirected to `app.asana.com/-/login`, which Asana refuses to frame (`frame-ancestors 'self'`), so the frame shows a browser error. The form page shows an "open it in Asana" fallback for this case. To let anyone fill the form without signing in, change the form's access to "Anyone with the link" in Asana — that is an Asana-side setting, not something this app controls.
 - Never rebuild an Asana form as custom fields UI — the iframe is the product.
 
 ## Project layout

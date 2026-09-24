@@ -53,7 +53,7 @@ export default async function FormPage({ params }: PageProps<"/forms/[slug]">) {
       </header>
 
       <div className={styles.formLayout}>
-        <AsanaEmbed src={form.asanaEmbedUrl} title={form.title} />
+        <AsanaEmbed src={form.asanaEmbedUrl} title={form.title} openUrl={openInAsana.toString()} />
 
         <aside className={styles.formAside} aria-label="About this form">
           <div className={`card ${styles.asideCard}`}>
