@@ -1,0 +1,312 @@
+.shell {
+  display: grid;
+  gap: 28px;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.topTitle {
+  display: grid;
+  gap: 8px;
+}
+
+.topTitle p {
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.subnav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.subnav a,
+.subnav button {
+  padding: 7px 11px;
+  border-radius: var(--radius-s);
+  border: 0;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.subnav a:hover,
+.subnav button:hover {
+  background: var(--paper-2);
+  color: var(--ink);
+}
+
+.notices {
+  display: grid;
+  gap: 10px;
+}
+
+/* ------------------------------------------------------------- overview */
+
+.overviewHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 24px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sections {
+  display: grid;
+  gap: 18px;
+}
+
+.sectionCard {
+  overflow: hidden;
+}
+
+.sectionCardHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 45%, var(--surface));
+}
+
+.sectionCardTitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  min-width: 0;
+}
+
+.sectionCardTitle h2 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+}
+
+.sectionCardMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.sectionCardActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th {
+  text-align: left;
+  padding: 10px 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+
+.table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table tbody tr {
+  transition: background var(--dur) var(--ease);
+}
+
+.table tbody tr:hover {
+  background: color-mix(in srgb, var(--paper) 40%, transparent);
+}
+
+.tdTitle {
+  font-weight: 500;
+}
+
+.tdTitle a {
+  color: var(--ink);
+}
+
+.tdTitle a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tdUrl {
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+.tdNum {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  text-align: right;
+}
+
+.tdActions {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.tdActions > * + * {
+  margin-left: 4px;
+}
+
+.sectionCardFoot {
+  padding: 12px 20px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.emptyRow {
+  padding: 24px 20px;
+  color: var(--muted);
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+@media (max-width: 720px) {
+  .hideSm {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------- editor */
+
+.editor {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .editor {
+    grid-template-columns: 1fr;
+  }
+}
+
+.editorForm {
+  display: grid;
+  gap: 22px;
+  padding: clamp(20px, 3vw, 32px);
+}
+
+.editorAside {
+  display: grid;
+  gap: 14px;
+}
+
+.editorAside .card {
+  padding: 18px;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.editorAside h2 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.editorAside code {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  background: var(--paper-2);
+  padding: 1px 5px;
+  border-radius: 4px;
+  word-break: break-all;
+}
+
+.dangerZone {
+  border-color: color-mix(in srgb, var(--danger) 25%, var(--line));
+}
+
+/* ----------------------------------------------------------------- gate */
+
+.gate {
+  max-width: 440px;
+  margin-inline: auto;
+  display: grid;
+  gap: 24px;
+  padding-top: clamp(16px, 5vw, 64px);
+}
+
+.gateCard {
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+}
+
+.gateHead {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.gateGlyph {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.gateGlyph svg {
+  width: 18px;
+  height: 18px;
+}
