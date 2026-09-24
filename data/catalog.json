@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "sections": [
+    {
+      "id": "sec_creative",
+      "name": "Creative",
+      "slug": "creative",
+      "description": "Design, copy, video and brand asset requests handled by the creative team.",
+      "order": 1,
+      "visible": true,
+      "createdAt": "2026-09-24T00:00:00.000Z",
+      "updatedAt": "2026-09-24T00:00:00.000Z"
+    }
+  ],
+  "forms": [
+    {
+      "id": "form_creative_request",
+      "sectionId": "sec_creative",
+      "title": "Creative Request Form",
+      "slug": "creative-request-form",
+      "description": "Request new creative work — decks, one-pagers, social graphics, landing pages, video edits and campaign assets.",
+      "asanaEmbedUrl": "https://form.asana.com/?k=sA5VMfv_ii_J0XNFf9PawA&d=1218331939650540&embed=true",
+      "order": 1,
+      "active": true,
+      "createdAt": "2026-09-24T00:00:00.000Z",
+      "updatedAt": "2026-09-24T00:00:00.000Z"
+    }
+  ]
+}
