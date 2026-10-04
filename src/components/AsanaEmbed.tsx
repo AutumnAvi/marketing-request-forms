@@ -12,12 +12,11 @@ export function AsanaEmbed({ src, title, openUrl }: { src: string; title: string
   return (
     <div className="asana-embed">
       <p className="asana-embed-help">
-        Forms restricted to our organisation ask you to sign in to Asana first. If the form does not appear below,{" "}
+        Form not loading?{" "}
         <a href={openUrl} target="_blank" rel="noopener noreferrer" className="link">
-          open it in Asana
+          Open it in Asana
           <ArrowUpRight />
         </a>
-        .
       </p>
       <div className="asana-embed-frame">
         <link rel="stylesheet" href={ASANA_EMBED_STYLESHEET} precedence="default" />
